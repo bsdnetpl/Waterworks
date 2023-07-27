@@ -19,10 +19,10 @@ namespace Waterworks.DTO
     {
         public EmployeeValidator()
         {
-            RuleFor(customer => customer.Email).NotNull().WithMessage("Email cannot be empty");
+            RuleFor(customer => customer.Email).NotNull().NotEmpty().WithMessage("Email cannot be empty");
             RuleFor(customer => customer.Email).EmailAddress().WithMessage("Wrong email address");
-            RuleFor(customer => customer.PhoneNumber).NotNull().WithMessage("Phone Number cannot be empty");
-            RuleFor(customer => customer.Password).Length(8, 25).WithMessage("The password must contain a minimum of 8 characters and a maximum of 25 characters");
+            RuleFor(customer => customer.PhoneNumber).NotNull().NotEmpty().WithMessage("Phone Number cannot be empty");
+            RuleFor(customer => customer.Password).Length(8, 25).NotNull().NotEmpty().WithMessage("The password must contain a minimum of 8 characters and a maximum of 25 characters");
 
         }
     }

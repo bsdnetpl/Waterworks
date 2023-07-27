@@ -12,6 +12,7 @@
         public double RateSewageNetto { get; set; }
         public double SubscriptionNetto { get; set;}
         public double AddPromotion { get; set;}
-        
+        public DateTime DateCreate { get; set; } = DateTime.Now;
+
     }
 }

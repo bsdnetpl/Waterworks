@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Waterworks.DB;
 
@@ -11,9 +12,11 @@ using Waterworks.DB;
 namespace Waterworks.Migrations
 {
     [DbContext(typeof(ConnectMssql))]
-    partial class ConnetMssqlModelSnapshot : ModelSnapshot
+    [Migration("20230727114358_addIsPayed")]
+    partial class addIsPayed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

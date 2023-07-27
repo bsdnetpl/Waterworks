@@ -9,6 +9,7 @@
         public DateTime? DateCheck { get; set; }
         public double  CounterCheckValue { get; set; }
         public Guid UserId { get; set; }
+        public bool isPayed { set; get; } = false;
 
     }
 }

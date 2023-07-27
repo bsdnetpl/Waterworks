@@ -11,7 +11,7 @@ using Waterworks.DB;
 
 namespace Waterworks.Migrations
 {
-    [DbContext(typeof(ConnetMssql))]
+    [DbContext(typeof(ConnectMssql))]
     [Migration("20230727050014_FirstRelase")]
     partial class FirstRelase
     {

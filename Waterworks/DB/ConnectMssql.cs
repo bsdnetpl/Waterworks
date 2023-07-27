@@ -3,9 +3,9 @@ using Waterworks.DTO;
 
 namespace Waterworks.DB
 {
-    public class ConnetMssql : DbContext
+    public class ConnectMssql : DbContext
     {
-        public ConnetMssql(DbContextOptions options) : base(options)
+        public ConnectMssql(DbContextOptions options) : base(options)
         {
         }
         public DbSet<Customer> customers { get; set; }

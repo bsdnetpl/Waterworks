@@ -16,11 +16,23 @@ namespace Waterworks.Controllers
             _customerService = customerService;
         }
 
-        //  [HttpGet("GetCustomer")]
+        [HttpGet("GetCustomer")]
+        public async Task<ActionResult <IEnumerable<Customer>>> GetCustomer(Guid guidCustomer) 
+        {
+            if (ModelState.IsValid)
+            {
+                return Ok(_customerService.GetCustomers(guidCustomer));
+            }
+            return BadRequest();
+        }
         [HttpPost("AddCustomer")]
         public async Task<ActionResult<bool>>AddCustomer(CustomerDTO customerDTO)
         {
-            return Ok(_customerService.AddCustomer(customerDTO));
+            if (ModelState.IsValid)
+            {
+                return Ok(_customerService.AddCustomer(customerDTO));
+            }
+            return BadRequest();
         }
        // [HttpPut("EditCustomer")]
     }

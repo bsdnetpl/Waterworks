@@ -5,5 +5,6 @@ namespace Waterworks.Service
     public interface ICustomerService 
     {
         bool AddCustomer(CustomerDTO customer);
+        Customer? GetCustomers(Guid guidCustomer);
     }
 }

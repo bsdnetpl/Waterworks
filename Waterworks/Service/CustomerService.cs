@@ -28,6 +28,9 @@ namespace Waterworks.Service
             return true;
         }
 
-
+        public Customer? GetCustomers(Guid guidCustomer)
+        {
+            return _connectMssql.customers.Find(guidCustomer);
+        }
     }
 }

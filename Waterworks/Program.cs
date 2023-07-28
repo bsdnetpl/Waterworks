@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddFluentValidation();
+builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IPasswordHasher<Customer>, PasswordHasher<Customer>>();
 builder.Services.AddDbContext<ConnectMssql>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("CS")));
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
-builder.Services.AddScoped<IValidator<Customer>, CustomerValidator>();
+builder.Services.AddScoped<IValidator<CustomerDTO>, CustomerDTOValidator>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 
 var app = builder.Build();

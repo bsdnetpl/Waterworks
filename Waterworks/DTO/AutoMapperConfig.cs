@@ -7,6 +7,7 @@ namespace Waterworks.DTO
         public AutoMapperConfig()
         {
             CreateMap<Customer, CustomerDTO>().ReverseMap();
+            CreateMap<BusinessClient, BusinessClientDTO>().ReverseMap();
         }
     }
 }

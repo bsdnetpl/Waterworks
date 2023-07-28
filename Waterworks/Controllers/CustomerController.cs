@@ -34,6 +34,10 @@ namespace Waterworks.Controllers
             }
             return BadRequest();
         }
-       // [HttpPut("EditCustomer")]
+        [HttpPut("EditCustomer")]
+        public async Task<ActionResult<Customer>> EditCustomer(Guid customerId, CustomerDTO customerDTO)
+        {
+              return  _customerService.EditCustomer(customerId, customerDTO);
+        }
     }
 }

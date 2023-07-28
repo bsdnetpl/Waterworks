@@ -6,5 +6,6 @@ namespace Waterworks.Service
     {
         bool AddCustomer(CustomerDTO customer);
         Customer? GetCustomers(Guid guidCustomer);
+        Customer EditCustomer(Guid customerId, CustomerDTO customerDTO);
     }
 }

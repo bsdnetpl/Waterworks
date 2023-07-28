@@ -24,17 +24,38 @@ namespace Waterworks.Service
         public bool AddCustomer(CustomerDTO customer)
         {
 
-            ValidationResult resultVal = _validator.Validate(customer);
+            //ValidationResult resultVal = _validator.Validate(customer);
             var result = _mapper.Map<Customer>(customer);
             result.Id = Guid.NewGuid();
             result.CreatedDate = DateTime.Now;
             result.Password = _passwordHasher.HashPassword(result, customer.Password);
-           
             _connectMssql.customers.Add(result);
             _connectMssql.SaveChanges();
             return true;
         }
 
+        public Customer EditCustomer(Guid customerId, CustomerDTO customerDTO)
+        {
+            var result = _connectMssql.customers .Find(customerId);
+          if(result is null)
+            {
+                
+            }
+            result.PhoneNumber = customerDTO.PhoneNumber;
+            result.Email = customerDTO.Email;
+            result.City = customerDTO.City;
+            result.Country = customerDTO.Country;
+            result.Address = customerDTO.Address;
+            result.CounterNymber = customerDTO.CounterNymber;
+            result.IdOffer = customerDTO.IdOffer;
+            result.Name = customerDTO.Name;
+            result.LastName = customerDTO.LastName;
+            result.PostalCode = customerDTO.PostalCode;
+            result.Country = customerDTO.Country;
+            result.Password = customerDTO.Password;
+            _connectMssql.SaveChanges();
+            return result;
+        }
         public Customer? GetCustomers(Guid guidCustomer)
         {
             return _connectMssql.customers.Find(guidCustomer);

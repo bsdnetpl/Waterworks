@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Waterworks.DTO;
+using Waterworks.Service;
 
 namespace Waterworks.Controllers
 {
@@ -8,12 +9,19 @@ namespace Waterworks.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
+        private readonly IEmployeeService _employeeService;
+
+        public EmployeeController(IEmployeeService employeeService)
+        {
+            _employeeService = employeeService;
+        }
+
         [HttpGet("GetCustomer")]
         public async Task<ActionResult<IEnumerable<Employee>>> GetCustomer(Guid guidCustomer)
         {
             if (ModelState.IsValid)
             {
-                return Ok(_customerService.GetCustomers(guidCustomer));
+                return Ok(_employeeService.GetEmployee(guidCustomer));
             }
             return BadRequest();
         }
@@ -22,14 +30,14 @@ namespace Waterworks.Controllers
         {
             if (ModelState.IsValid)
             {
-                return Ok(_customerService.AddCustomer(customerDTO));
+                return Ok(_employeeService.AddEmployeer(employee));
             }
             return BadRequest();
         }
         [HttpPut("EditCustomer")]
         public async Task<ActionResult<Employee>> EditCustomer(Employee employee)
         {
-            return _customerService.EditCustomer(customerId, customerDTO);
+            return _employeeService.EditEmployee(employee);
         }
     }
 }

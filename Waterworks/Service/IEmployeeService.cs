@@ -4,8 +4,8 @@ namespace Waterworks.Service
 {
     public interface IEmployeeService
     {
-        bool AddCustomer(Employee employee);
-        Employee EditCustomer(Employee employee);
-        Employee GetCustomer(Guid guidCustomer);
+        bool AddEmployeer(Employee employee);
+        Employee EditEmployee(Employee employee);
+        Employee GetEmployee(Guid guidCustomer);
     }
 }

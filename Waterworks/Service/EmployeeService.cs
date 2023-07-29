@@ -20,7 +20,7 @@ namespace Waterworks.Service
             _passwordHasher = passwordHasher;
             _validator = validator;
         }
-        public bool AddCustomer(Employee employee)
+        public bool AddEmployeer(Employee employee)
         {
             var result = _mapper.Map<Employee>(employee);
             result.id = Guid.NewGuid();
@@ -30,7 +30,8 @@ namespace Waterworks.Service
             _connectMssql.SaveChanges();
             return true;
         }
-        public Employee EditCustomer(Employee employee)
+
+        public Employee EditEmployee(Employee employee)
         {
             var result = _connectMssql.employees.Find(employee.id);
             if (result is null)
@@ -45,11 +46,10 @@ namespace Waterworks.Service
             result.Password = _passwordHasher.HashPassword(result, employee.Password);
             _connectMssql.SaveChanges();
             return result;
-
         }
-        public Employee GetCustomer(Guid guidCustomer)
+        public Employee GetEmployee(Guid guidCustomer)
         {
-
+            return _connectMssql.employees.Find(guidCustomer);
         }
 
     }

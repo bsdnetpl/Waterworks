@@ -60,5 +60,17 @@ namespace Waterworks.Service
         {
             return _connectMssql.customers.Find(guidCustomer);
         }
+        public bool DeleteCustomers(Guid UserUId, Guid EmployeeId)
+        {
+            var resultCheck = _connectMssql.employees.Find(EmployeeId);
+            if (resultCheck == null)
+            {
+                return false;
+            }
+            var delProd = _connectMssql.customers.Find(UserUId);
+            _connectMssql.customers.Remove(delProd);
+            _connectMssql.SaveChanges();
+            return true;
+        }
     }
 }

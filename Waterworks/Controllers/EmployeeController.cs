@@ -16,8 +16,8 @@ namespace Waterworks.Controllers
             _employeeService = employeeService;
         }
 
-        [HttpGet("GetCustomer")]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetCustomer(Guid guidCustomer)
+        [HttpGet("GetEmployee")]
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee(Guid guidCustomer)
         {
             if (ModelState.IsValid)
             {
@@ -25,8 +25,8 @@ namespace Waterworks.Controllers
             }
             return BadRequest();
         }
-        [HttpPost("AddCustomer")]
-        public async Task<ActionResult<bool>> AddCustomer(Employee employee)
+        [HttpPost("AddEmployee")]
+        public async Task<ActionResult<bool>> AddEmployeer(Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -34,8 +34,8 @@ namespace Waterworks.Controllers
             }
             return BadRequest();
         }
-        [HttpPut("EditCustomer")]
-        public async Task<ActionResult<Employee>> EditCustomer(Employee employee)
+        [HttpPut("EditEmployee")]
+        public async Task<ActionResult<Employee>> EditEmployee(Employee employee)
         {
             return _employeeService.EditEmployee(employee);
         }

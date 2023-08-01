@@ -29,5 +29,11 @@ namespace Waterworks.Controllers
         {
            return _bussinesClientService.EditBiusinesClient(IdBiusinesClient, businessClientDTO);
         }
+        [HttpDelete("DeleteBiusinesClient")]
+        public ActionResult<bool> DeleteBiusinesClient(Guid UserUId, Guid EmployeeId)
+        {
+            return _bussinesClientService.DeleteBiusinesClient(UserUId, EmployeeId);
+        }
+
     }
 }

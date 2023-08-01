@@ -7,5 +7,6 @@ namespace Waterworks.Service
         bool AddBiusinesClient(BusinessClientDTO businessClientDTO);
         BusinessClient EditBiusinesClient(Guid IdBiusinesClient, BusinessClientDTO businessClientDTO);
         BusinessClient GetBiusinesClient(Guid IdBiusinesClient);
+        bool DeleteBiusinesClient(Guid UserUId, Guid EmployeeId);
     }
 }

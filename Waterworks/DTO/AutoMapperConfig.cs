@@ -8,6 +8,7 @@ namespace Waterworks.DTO
         {
             CreateMap<Customer, CustomerDTO>().ReverseMap();
             CreateMap<BusinessClient, BusinessClientDTO>().ReverseMap();
+            CreateMap<CustomersPayment, CustomersPaymentDTO>().ReverseMap();
         }
     }
 }

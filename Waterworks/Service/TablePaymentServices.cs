@@ -3,7 +3,7 @@ using Waterworks.DTO;
 
 namespace Waterworks.Service
 {
-    public class TablePaymentServices
+    public class TablePaymentServices : ITablePaymentServices
     {
         private readonly ConnectMssql _connectMssql;
 

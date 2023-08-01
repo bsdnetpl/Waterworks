@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using Waterworks.DB;
 using Waterworks.DTO;
 
@@ -57,6 +58,19 @@ namespace Waterworks.Service
             result.Password = businessClientDTO.Password;
             _connectMssql.SaveChanges();
             return result;
+        }
+
+        public bool DeleteBiusinesClient(Guid UserUId, Guid EmployeeId)
+        {
+            var resultCheck = _connectMssql.employees.Find(EmployeeId);
+            if (resultCheck == null)
+            {
+                return false;
+            }
+            var delProd = _connectMssql.businessClients.Find(UserUId);
+            _connectMssql.businessClients.Remove(delProd);
+            _connectMssql.SaveChanges();
+            return true;
         }
     }
 }
